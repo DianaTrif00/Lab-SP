@@ -6,7 +6,7 @@ public class Image implements Element, Picture {
     private String imageName;
     private Dimension dim = new Dimension(400,400);
 
-    private ImageLoader lodaer;
+    private ImageContent content;
     private ImageLoaderFactory imageLoaderFactory = new ImageLoaderFactory();
 
     public Image(String imageName) {
@@ -23,7 +23,8 @@ public class Image implements Element, Picture {
     }
 
     public void loadContent() throws Exception {
-        lodaer = ImageLoaderFactory.create(imageName);
+        ImageLoader loader = ImageLoaderFactory.create(imageName);
+        content = loader.load("Content");
     }
 
     public void print() {

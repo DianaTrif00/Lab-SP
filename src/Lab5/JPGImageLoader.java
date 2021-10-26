@@ -7,7 +7,8 @@ public class JPGImageLoader implements ImageLoader{
     }
 
     @Override
-    public void load(String str) {
+    public ImageContent load(String str) {
         System.out.println("Loaded JPG Image: " + str);
+        return new ImageContent(str);
     }
 }
